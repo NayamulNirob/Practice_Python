@@ -1,0 +1,11 @@
+{
+  "env": {
+    "ANTHROPIC_API_KEY": "fe_oa_24c4337251a8164d2540fbf1e4666e3b59e7440870f70af2",
+    "ANTHROPIC_BASE_URL": "https://cc.freemodel.dev",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "theme": "auto"
+}
