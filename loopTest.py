@@ -48,13 +48,18 @@ match result:
 start =int(input("Enter the starting number: "))
 end = int(input("Enter the ending number: "))
 
+sumOfEven = 0
+sumOfOdd = 0
+
 while start <= end:
     if start % 2 == 0:
+        sumOfEven += start
         print("Even number is:", start)
         start += 1
         continue
 
     if start % 2 !=  0:
+        sumOfOdd += start
         print("Odd number is:", start)
         start += 1
         continue
@@ -66,3 +71,5 @@ while start <= end:
     start += 1
 
 print("While loop with break and continue statement")
+print("Sum of even numbers:", sumOfEven)
+print("Sum of odd numbers:", sumOfOdd)
