@@ -18,6 +18,8 @@ match Day:
         print("Weekend 1")
     case "Sunday":
         print("Weekend 2")
+    case _:
+        print("input a valid day")
 
 #marks calculation using match case
 result=float(input("Enter your total marks: "))
@@ -41,3 +43,26 @@ match result:
         print("C")
     case _:
         print("Fail")
+
+#While loop with break and continue statement
+start =int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+while start <= end:
+    if start % 2 == 0:
+        print("Even number is:", start)
+        start += 1
+        continue
+
+    if start % 2 !=  0:
+        print("Odd number is:", start)
+        start += 1
+        continue
+
+    if start == end:
+        print("End number is:", start)
+        break
+
+    start += 1
+
+print("While loop with break and continue statement")
