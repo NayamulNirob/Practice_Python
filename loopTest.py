@@ -23,7 +23,7 @@ match Day:
 result=float(input("Enter your total marks: "))
 
 match result:
-    case result if result > 100 or result < 0:
+    case result if  result > 100 or result < 0: # In Python match-case, _ is a wildcard pattern. and result is a variable that can be used to capture the value of the matched case.
         print("Invalid marks")
     case _ if result >= 90: # In Python match-case, _ is a wildcard pattern.
         print("Golden A+")
