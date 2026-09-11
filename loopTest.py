@@ -19,13 +19,13 @@ match Day:
     case "Sunday":
         print("Weekend 2")
 
-result=int(input("Enter your total marks: "))
-
+#marks calculation using match case
+result=float(input("Enter your total marks: "))
 
 match result:
-    case _ if result > 100:
+    case result if result > 100 or result < 0:
         print("Invalid marks")
-    case _ if result >= 90:
+    case _ if result >= 90: # In Python match-case, _ is a wildcard pattern.
         print("Golden A+")
     case _ if result >= 80:
         print("A+")
@@ -39,7 +39,5 @@ match result:
         print("B-")
     case _ if result >= 30:
         print("C")
-    case _ if result < 0:
-        print("Invalid marks")
     case _:
         print("Fail")
