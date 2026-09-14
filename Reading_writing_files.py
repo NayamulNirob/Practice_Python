@@ -23,6 +23,9 @@ print("\n-----------------\n")
 forWrite=open("StudentForWrite.txt", "w") # The "w" mode opens the file for writing
 print("If writable return True:", forWrite.writable()) # The writable() method checks if the file is writable and returns True if it is, otherwise it returns False.
 forWrite.write("1004, Carol Williams, 19, carol.williams@example.com, Physics, 3.75, 2024")
+print("File written successfully.")
+forWrite.close()
+forWrite=open("StudentForWrite.txt", "a") # The "a" mode opens the file for writing without replacing the existing content. If the file does not exist, it will create a new file.
 forWrite.write("\n1005, David Brown, 23, david.brown@example.com, Biology, 3.60, 2025")
 print("File written successfully.")
 forWrite.close()
