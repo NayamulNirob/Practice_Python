@@ -2,11 +2,21 @@
 #In Python, you can read and write files using built-in functions. The open() function is used to open a file and returns a file object. You can then use this object to read from or write to the file.
 
 forRead=open("StudentForRead.txt", "r") # The "r" mode opens the file for reading. If the file does not exist, it will raise an error.
-print("If readable return True:", forRead.readable()) # The readable() method checks if the file is readable and returns True if it is, otherwise it returns False.
+readLines=forRead.readlines()
+print("\nFile content:", readLines)
+print("\nIf readable return True:", forRead.readable(),"\n") # The readable() method checks if the file is readable and returns True if it is, otherwise it returns False.
+for line in readLines:
+    print("Line: ", line.strip()) # The strip() method removes any leading and trailing whitespace characters (including newlines) from the string. This is useful for cleaning up the output when printing lines from a file.
+forRead.close()
+
+forRead=open("StudentForRead.txt", "r") # The "r" mode opens the file for reading. If the file does not exist, it will raise an error.
 text=forRead.read()
-print(text)
+print("\n",text)
 size=len(text) # The len() function returns the number of characters in the string text, which is the content of the file. This gives us the size of the file in terms of the number of characters.
 print("Size of the file is as Characters based: ", size)
+
+
+
 forRead.close()
 print("\n-----------------\n")
 
