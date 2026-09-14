@@ -9,6 +9,6 @@ def factorial(n):
     elif n<0:
         return "Factorial is not defined for negative numbers"
     else:
-        return n * factorial(n - 1)
+        return n * factorial(n - 1) # function calls itself with n-1 until it reaches the base case of 0! = 1. The function then multiplies the results of each recursive call to calculate the final factorial value.
 
 print(factorial(5)) # Output: for 5 = 5 * 4 * 3 * 2 * 1 = 120  n!=n*(n-1)!
