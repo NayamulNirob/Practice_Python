@@ -23,8 +23,8 @@ print("Filter use with Lambda Function: ",filterUseWithLambda)
 print("-----------------List Comprehensions-------------------")
 #List comprehensions are a concise way to create lists in Python. They allow you to generate a new list by applying an expression to each item in an existing iterable. The basic syntax of a list comprehension is as follows:
 # [expression for item in iterable if condition]
-squared_numbers_comprehension = [x * x for x in num]
+squared_numbers_comprehension = [x * x for x in num] # The list comprehension iterates over each item x in the num list and applies the expression x * x to it. The result is a new list containing the squared values of the original list.
 print("List comprehension for squaring numbers: ", squared_numbers_comprehension)
 
-even_numbers_comprehension = [x for x in num if x % 2 == 0]
+even_numbers_comprehension = [x for x in num if x % 2 == 0] # The list comprehension iterates over each item x in the num list and includes it in the new list only if it satisfies the condition x % 2 == 0 (i.e., if x is even). The result is a new list containing only the even numbers from the original list.
 print("List comprehension for even numbers: ", even_numbers_comprehension)
