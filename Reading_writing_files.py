@@ -38,3 +38,9 @@ print("File content:")
 print(forReadPlus.read())
 forReadPlus.close()
 print("\n-----------------\n")
+
+forCreateFile=open("Student.txt", "w") # The "w" mode opens the file for writing, replacing the existing content. If the file does not exist, it will create a new file.
+forCreateFile.write("1006, Steven Byard, 27, steven.byard@example.com, Biology, 3.60, 2025")
+print("File written successfully.")
+forCreateFile.close()
+print("\n-----------------\n")
