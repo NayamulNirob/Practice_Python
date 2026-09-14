@@ -3,7 +3,10 @@
 
 forRead=open("StudentForRead.txt", "r") # The "r" mode opens the file for reading. If the file does not exist, it will raise an error.
 print("If readable return True:", forRead.readable()) # The readable() method checks if the file is readable and returns True if it is, otherwise it returns False.
-print(forRead.read())
+text=forRead.read()
+print(text)
+size=len(text) # The len() function returns the number of characters in the string text, which is the content of the file. This gives us the size of the file in terms of the number of characters.
+print("Size of the file is as Characters based: ", size)
 forRead.close()
 print("\n-----------------\n")
 
