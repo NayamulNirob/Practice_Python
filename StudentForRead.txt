@@ -1,0 +1,4 @@
+1001, Alice Johnson, 20, alice.johnson@example.com, Computer Science, 3.85, 2024
+1002, Jeremy Smith, 22, jeremy.smith@example.com, Chemistry, 3.80, 2025
+1003, Bob Johnson, 21, bob.johnson@example.com, Mathematics, 3.90, 2026
+1004, Carol Williams, 19, carol.williams@example.com, Physics, 3.75, 2024
