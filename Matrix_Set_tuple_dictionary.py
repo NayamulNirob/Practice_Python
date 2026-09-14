@@ -42,4 +42,4 @@ print(tuplePractice)
 print(tuplePractice[2])
 
 print(tuplePractice2)
-print(tuplePractice2[1][1])
+print(tuplePractice2[1][1]) 
