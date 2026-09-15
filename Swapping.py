@@ -24,3 +24,15 @@ fun1()
 print(x)
 
 
+'''
+[1, 2, 3, 4]
+[1, 2, 3, 4]
+Explanation: When you do b = a with mutable objects like lists, b doesn’t create a copy; 
+it creates another reference (or name) pointing to the same list object in memory. 
+So, modifying b also modifies the object a refers to.
+'''
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
+print(b)
