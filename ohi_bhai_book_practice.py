@@ -1,20 +1,20 @@
 # #while loop example
-# jalani=3
-#
-# while jalani>0:
-#     print("trine cholche",jalani)
-#     jalani=jalani-1
-# print("jalani sesh hoye gelo",jalani)
-#
-#
-# #function example
-#
-# def salam_janao(name):
-#     print("Assalamu Alaikum",name)
-#
-#
-# salam_janao("John")
-# salam_janao("Jan")
+jalani=3
+
+while jalani>0:
+    print("trine cholche",jalani)
+    jalani=jalani-1
+print("jalani sesh hoye gelo",jalani)
+
+
+#function example
+
+def salam_janao(name):
+    print("Assalamu Alaikum",name)
+
+
+salam_janao("John")
+salam_janao("Jan")
 
 #first fastapi example
 # to run this code, use the command: uvicorn ohi_bhai_book_practice:app --reload
