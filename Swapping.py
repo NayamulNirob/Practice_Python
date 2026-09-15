@@ -11,3 +11,16 @@ b=10
 a,b=b,a
 print("The value of a after swapping: ",a)
 print("The value of b after swapping: ",b)
+
+
+#Example of Global variable and how to reassign the value.
+x=50
+def fun1():
+  global x
+  x=20
+  return x
+
+fun1()
+print(x)
+
+
