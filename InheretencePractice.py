@@ -1,11 +1,21 @@
-class Shape:
+# ** HIERARCHICAL Inheritance= Parent class can be inherited by multiple child classes  like this class.
+# ** Multilevel Inheritance= Like A,B,C classes. B class inherit A class and C class inherit B class.
+# ** Multiple Inheritance = A,B,C,D classes. A <-B, A <-C and D inherit B,C is called multiple Inheritance.
+
+from abc import ABC,abstractmethod
+# Abstract class is not allowed to create any object
+# If any class inherit abstract class then that class must be the abstract method.
+
+class Shape(ABC): #Example of abstract class
     def __init__(self,dim1,dim2):
         self.dim1 = dim1
         self.dim2 = dim2
 
-    @staticmethod
-    def area():
-        print("This a demo")
+    @abstractmethod
+    def area(self): # example of abstract method
+        pass
+
+
 
 
 class Triangle(Shape):
