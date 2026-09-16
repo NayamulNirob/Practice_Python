@@ -1,0 +1,17 @@
+Django Install : python -m pip install Django
+
+Django clone to local: git clone https://github.com/django/django.git 
+
+Install Django: py -m pip install -e django\ 
+
+Create a project via terminal: django-admin startproject mysite djangotutorial
+
+Strat the server: py manage.py runserver
+
+Django version check: py -m django --version
+
+Create polls: py manage.py startapp polls
+
+create make makemigrations: py manage.py makemigrations
+
+create : py manage.py migratepy manage.py makemigrations
