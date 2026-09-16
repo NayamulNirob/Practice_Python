@@ -18,3 +18,5 @@ create : py manage.py migratepy manage.py makemigrations
 
 
 pycharme config of Environment variables: PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=mysite.settings
+
+For m
