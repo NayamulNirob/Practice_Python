@@ -8,19 +8,17 @@ Install Django: py -m pip install -e django\
 
 To check the admin : django-admin
 
-Create a project via terminal: django-admin startproject mysite djangotutorial
+Create a project via terminal: django-admin startproject appname projectname
 
 Strat the server: py manage.py runserver
 
 Django version check: py -m django --version
 
-Create polls: py manage.py startapp polls
+Create polls: py manage.py startapp appname
 
 create make makemigrations: py manage.py makemigrations
-
-create : py manage.py migratepy manage.py makemigrations
 
 
 pycharme config of Environment variables: PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=mysite.settings
 
-Create a app: python manage.py startapp members
+Create a app: python manage.py startapp appname
