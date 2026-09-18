@@ -18,9 +18,13 @@ Create polls: py manage.py startapp appname
 
 create make makemigrations or db table: py manage.py makemigrations
 
+create maigration: py manage.py migrate
+
+create a superuser via admin: manage.py createsuperuser
+
 
 pycharme config of Environment variables: PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=mysite.settings
 
 Create a app: python manage.py startapp appname
 
-create a superuser via admin: manage.py createsuperuser
+
