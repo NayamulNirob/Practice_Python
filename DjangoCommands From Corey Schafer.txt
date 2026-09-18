@@ -20,7 +20,7 @@ create make makemigrations or db table: py manage.py makemigrations
 
 create maigration: py manage.py migrate
 
-create a superuser via admin: manage.py createsuperuser
+create a superuser via admin: py manage.py createsuperuser
 
 
 pycharme config of Environment variables: PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=mysite.settings
