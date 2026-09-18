@@ -7,17 +7,17 @@ posts=[
     {'auther':'John dou',
      'title' :'John dou\'s blog',
      'content':'John dou first blog.........',
-     'date_posted':datetime.datetime.now()
+     'date_posted':datetime.date.today()
      },
      {'auther':'Steven byard',
      'title' :'Steven byard\'s blog',
      'content':'Steven byard first blog.........',
-     'date_posted':datetime.datetime.now()
+     'date_posted':datetime.date.today()
      },
     {'auther':'Bob hone',
      'title' :'Bob hone\'s blog',
      'content':'Bob hone first blog.........',
-     'date_posted':datetime.datetime.now()
+     'date_posted':datetime.date.today()
      }
 ]
 
