@@ -48,3 +48,7 @@ quire to specific user:
 >>> User.objects.filter(username='nayamul')
 <QuerySet [<User: nayamul>]>
 
+for work with forms need to install crispy form: pip install django-crispy-forms
+and also: pip install crispy-bootstrap5
+
+

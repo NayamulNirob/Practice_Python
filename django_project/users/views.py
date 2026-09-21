@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 # from django.contrib.auth.forms import  UserCreationForm
 from django.contrib import messages
 from .forms import UserRegistrationForm
-
+from django.conf import settings
 # Create your views here.
 
 def register(request):
@@ -18,3 +18,5 @@ def register(request):
         # form = UserCreationForm() # built in form of django
         form = UserRegistrationForm()
     return render(request,'users/register.html',{'form':form})
+
+print(f"Current Crispy Pack: {settings.CRISPY_TEMPLATE_PACK}")
