@@ -22,9 +22,29 @@ create maigration: py manage.py migrate
 
 create a superuser via admin: py manage.py createsuperuser
 
+create a table in DB: py manage.py sqlmigrate blog 0001 # last two is app name and migration Number.
+
 
 pycharme config of Environment variables: PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=mysite.settings
 
 Create a app: python manage.py startapp appname
 
+shell start : py manage.py shell
+
+to create and use table use : from blog.models import Post
+to import user: from django.contrib.auth.models import User
+
+
+quire to capture all Users : >>> User.objects.all()
+<QuerySet [<User: nayamul>, <User: TestUser>]>
+
+
+quire to specific user: 
+
+>>> User.objects.first()
+<User: nayamul>
+>>> User.objects.last() 
+<User: TestUser>
+>>> User.objects.filter(username='nayamul')
+<QuerySet [<User: nayamul>]>
 
