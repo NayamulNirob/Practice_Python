@@ -6,6 +6,12 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Create an Account</legend>
+                {# ADD THIS BLOCK TO SEE WHY IT FAILS #}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
                 {{ form.as_p }}
             </fieldset>
             <div class="form-group">
