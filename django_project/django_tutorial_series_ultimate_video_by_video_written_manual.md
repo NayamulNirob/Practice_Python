@@ -585,12 +585,13 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from users import views as user_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('logout/', user_views.logout_view, name='logout'),
     path('', include('blog.urls')),
 ]
 ```
@@ -620,26 +621,37 @@ urlpatterns = [
 ```
 
 ### 3. Logout Template (`users/templates/users/logout.html`)
+#Since `GET` requests can no longer be used with Django's `logout` method, we must use the `POST` method.
 ```html
 {% extends "blog/base.html" %}
 {% block content %}
-    <h2>You have been logged out</h2>
+    <h2>You have been Log Out</h2>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+    </form>
     <div class="border-top pt-3">
         <small class="text-muted">
-            <a href="{% url 'login' %}">Log In Again</a>
+            <a href="{% url 'login' %}">Login again</a>
         </small>
     </div>
 {% endblock content %}
 ```
+### 4. Logout  (`users/views.py`)
+#### The built-in logout method is no longer working due to the 'GET' method, so we have used a custom method for it.
+```
+def logout_view(request):
+    logout(request)
+    return render(request,'users/logout.html')
+```
 
-### 4. Configuring Login/Logout Settings (`django_project/settings.py`)
+### 5. Configuring Login Settings (`django_project/settings.py`)
 ```python
 # Redirect settings after authentication actions
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 ```
 
-### 5. Access Control Decorator (`users/views.py`)
+### 6. Access Control Decorator (`users/views.py`)
 Use `@login_required` to block unauthenticated visitors from accessing views:
 
 ```python
