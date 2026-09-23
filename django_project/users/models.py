@@ -1,7 +1,9 @@
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+import logging
+logger = logging.getLogger(__name__)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -12,10 +14,17 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
 
-    def save(self):
-        super().save()
-        img = Image.open(self.image.path)
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        try:
+            img = Image.open(self.image.path)
+            if img.height > 300 or img.width > 300:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                
+                if img.mode != 'RGB':
+                    img = img.convert('RGB')
+                img.save(self.image.path)
+        except (AttributeError, IOError, UnidentifiedImageError) as e:
+            logger.error(f"Image Error{self.user.username}:{e}")
+            # Handle cases where image file might be missing or corrupted (like default.jpg)
