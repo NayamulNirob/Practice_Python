@@ -30,7 +30,8 @@ def logout_view(request):
     return render(request, 'users/logout.html')
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/login/')# this is optional we can set this login_url at setting.py as LOGIN_URL = 'login'
+
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(

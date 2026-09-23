@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
@@ -39,6 +40,16 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+
+class PostCreateView(LoginRequiredMixin,CreateView):
+    model = Post
+    fields = ['title','content']
+
+    def form_valid(self,form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
 
 def about(request):
     return render(request,'blog/about.html',{'title':'About'})
