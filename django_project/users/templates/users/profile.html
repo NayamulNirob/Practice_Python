@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>Account Info of {{ user.username }}</h1>
     <div class="content-section">
@@ -10,5 +11,22 @@
             </div>
         </div>
         <!-- FORM HERE -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {# ADD THIS BLOCK TO SEE WHY IT FAILS #}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </form>
     </div>
 {% endblock content %}
