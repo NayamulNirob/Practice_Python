@@ -53,4 +53,3 @@ and also: pip install crispy-bootstrap5
 
 
 To work with python Djongo image need to install:python -m pip install Pillow
-
