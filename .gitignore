@@ -2,3 +2,4 @@
 .idea
 *.pyc
 Student.txt
+django_project/posts.json
