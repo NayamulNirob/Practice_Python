@@ -8,12 +8,10 @@
                 <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
                 {% if object.author == user %}
                     <div class = "float-right mt-1 mb-1">
-                        <button type="button" class="btn btn-primary btn-sm me-md-2"
-                                href="{% url 'post-update' object.id %}">Update
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm me-md-2"
-                                href="{% url 'post-delete' object.id %}">Delete
-                        </button>
+                        <a class="btn btn-primary btn-sm me-md-2"
+                                href="{% url 'post-update' object.id %}">Update</a>
+                        <a class="btn btn-danger btn-sm me-md-2"
+                                href="{% url 'post-delete' object.id %}">Delete</a>
                     </div>
                 {% endif %}
             </div>
