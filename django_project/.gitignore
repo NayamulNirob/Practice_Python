@@ -1,5 +1,4 @@
 *.pyc
 Student.txt
-django_project/posts.json
 django_project/.env
 .env
