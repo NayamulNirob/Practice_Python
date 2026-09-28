@@ -51,3 +51,10 @@ x=np.array([1,2,3,4,5,6,7,8,9,10])
 new=x.reshape((2,5))
 print(new)
 
+
+#With the help of numpy.reshape we can convert multidimensional array into single array
+
+multi=np.array([[1,2,3,4,5],[5,6,7,8,9]])
+single=multi.reshape(-1)
+print(single)
+
