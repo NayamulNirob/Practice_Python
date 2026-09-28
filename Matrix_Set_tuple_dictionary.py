@@ -1,4 +1,5 @@
 #Matrix or 2D array example
+import numpy as np
 matrix=[
     [1,2,3],
     [4,5,6],
@@ -42,4 +43,11 @@ print(tuplePractice)
 print(tuplePractice[2])
 
 print(tuplePractice2)
-print(tuplePractice2[1][1]) 
+print(tuplePractice2[1][1])
+
+
+#Reshape is used to divide an array with numpy
+x=np.array([1,2,3,4,5,6,7,8,9,10])
+new=x.reshape((2,5))
+print(new)
+
