@@ -58,3 +58,12 @@ multi=np.array([[1,2,3,4,5],[5,6,7,8,9]])
 single=multi.reshape(-1)
 print(single)
 
+arr=np.array([[[9,2,3],[4,8,6],[6,8,9]]])
+
+# for x in arr:
+#     for y in x:
+#       for  z in y:
+#         print(z)
+
+for x in np.nditer(arr): #same thing as for with built-in numpy
+    print(x)
