@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,10 +76,10 @@ WSGI_APPLICATION = 'project_with_mysql_crud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'django',
+        'NAME':'mysql',
         'USER':'root',
-        'PASSWORD':'2020',
-        'HOST':'localhost',
+        'PASSWORD':'',
+        'HOST':'127.0.0.1',
         'PORT':'3306',
         'OPTIONS': {
             'charset':'utf8',
