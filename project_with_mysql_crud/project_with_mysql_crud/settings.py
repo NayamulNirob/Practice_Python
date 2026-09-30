@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'project_with_mysql_crud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'mysql',
+        'NAME':'world',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'2020',
         'HOST':'127.0.0.1',
         'PORT':'3306',
         'OPTIONS': {
