@@ -56,3 +56,17 @@ To work with python Djongo image need to install:python -m pip install Pillow
 
 
 For MySQL : pip install mysqlclient
+
+For Upgrading PiP: python.exe -m pip install --upgrade pip 
+
+
+for local MariaDB start :  mysqld --console
+
+#############################################################################################################################################################
+
+--------------------------------------------------------------Django Tutorial Of Maximilian------------------------------------------------------------------
+
+Python version check: python --version
+
+To install Django globally: py -m pip install django
+
