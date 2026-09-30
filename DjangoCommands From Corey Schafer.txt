@@ -68,5 +68,9 @@ for local MariaDB start :  mysqld --console
 
 Python version check: python --version
 
-To install Django globally: py -m pip install django
+To install Django globally: py -m pip install Django
+To verify Django is working:django-admin
+
+
+
 
