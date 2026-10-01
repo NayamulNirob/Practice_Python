@@ -19,18 +19,16 @@ monthly_challenges = {
 }
 
 
-
 def monthly_challenge(request, month):
     try:
         challenge_text = monthly_challenges[month]
         return render(request, "challenges/monthly_challenges.html", {
             "month": month,
             "challenge_text": challenge_text
-        })  
+        })
     except:
         return HttpResponse("This month is not supported!")
 
-    
 
 def index(request):
     return render(request, "challenges/index.html")
