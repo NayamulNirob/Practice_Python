@@ -36,7 +36,8 @@ def monthly_challenges_by_number(request, month):
     redirect_path = reverse("monthly_challenge", args=[redirect_month])
 
     return render(request, "challenges/monthly_challenges.html", {
-        "month": redirect_path,
+        # "month": redirect_path,
+        "month": redirect_month.capitalize(),
         "challenge_text": challenge_text
     })
 
@@ -45,7 +46,7 @@ def monthly_challenge(request, month):
     try:
         challenge_text = monthly_challenges[month]
         return render(request, "challenges/monthly_challenges.html", {
-            "month": month,
+            "month": month.capitalize(),
             "challenge_text": challenge_text
         })
     except:
@@ -53,6 +54,9 @@ def monthly_challenge(request, month):
 
 
 def index(request):
-    return render(request, "challenges/index.html", {
-        "monthly_challenges": monthly_challenges
+
+    CAPITALIZED_MONTHS = [month.capitalize() for month in monthly_challenges.keys()]
+    return render(request, "challenges/home.html", {
+        "monthly_challenges": monthly_challenges,
+        "capitalized_months": CAPITALIZED_MONTHS
     })

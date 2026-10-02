@@ -1,0 +1,27 @@
+{% extends "challenges/index.html" %} {% block content %}
+
+<div class="row mt-4">
+  <div class="col-6">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'january' %}">January</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'february' %}">February</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'march' %}">March</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'april' %}">April</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'may' %}">May</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'june' %}">June</a>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'july' %}">July</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'august' %}">August</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'september' %}">September</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'october' %}">October</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'november' %}">November</a>
+      <a class="list-group-item list-group-item-action" href="{% url 'monthly_challenge' 'december' %}">December</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
