@@ -1,5 +1,6 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 # Create your views here.
 
@@ -32,9 +33,10 @@ def monthly_challenges_by_number(request, month):
 
     # 3. Get the actual challenge text using that name
     challenge_text = monthly_challenges[redirect_month]
+    redirect_path = reverse("monthly_challenge", args=[redirect_month])
 
     return render(request, "challenges/monthly_challenges.html", {
-        "month": redirect_month,
+        "month": redirect_path,
         "challenge_text": challenge_text
     })
 
@@ -51,4 +53,6 @@ def monthly_challenge(request, month):
 
 
 def index(request):
-    return render(request, "challenges/index.html")
+    return render(request, "challenges/index.html", {
+        "monthly_challenges": monthly_challenges
+    })
