@@ -23,7 +23,7 @@ def monthly_challenges_by_number(request, month):
     months = list(monthly_challenges.keys())
 
     # 1. Handle invalid month numbers so the site doesn't crash
-    if month < 1 or month > 12:
+    if month < 1 or month > len(months):
         return HttpResponse("This month is not supported!")
         # Or use raise Http404()
 
