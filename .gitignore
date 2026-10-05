@@ -3,3 +3,4 @@
 *.pyc
 Student.txt
 django_project/.env
+django_project/media/profile_pics/MD_Nayamul_Islam.jpg

@@ -63,6 +63,9 @@ For Upgrading PiP: python.exe -m pip install --upgrade pip
 for local MariaDB start :  mysqld --console
 
 
+to create an email verification using smtp via gmail app password
+
+
 
 
 ---------------------------------This is the code for transfer JSON data to RDNMS-----------------------------------------------------------
