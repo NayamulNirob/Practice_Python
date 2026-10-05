@@ -62,6 +62,31 @@ For Upgrading PiP: python.exe -m pip install --upgrade pip
 
 for local MariaDB start :  mysqld --console
 
+
+
+
+---------------------------------This is the code for transfer JSON data to RDNMS-----------------------------------------------------------
+
+# should run via py manage.py shell and should be logged in with super user
+# from blog.models import Post : this blog is the appName and blog.models is model of blog app and post is table 
+# The JSONS data has been stored in the data variable.
+# [Post(title=p["title"], content=p["content"], author_id=p["user_id"]) for p in data] : this is the iteration  via for loop .
+
+
+import json
+from blog.models import Post
+
+with open("posts.json", encoding="utf-8") as f:
+    data = json.load(f)
+
+Post.objects.bulk_create(
+    [Post(title=p["title"], content=p["content"], author_id=p["user_id"]) for p in data]
+)
+print(Post.objects.count())
+
+
+
+
 #############################################################################################################################################################
 
 --------------------------------------------------------------Django Tutorial Of Maximilian------------------------------------------------------------------
@@ -69,8 +94,10 @@ for local MariaDB start :  mysqld --console
 Python version check: python --version
 
 To install Django globally: py -m pip install Django
-To verify Django is working:django-admin
 
+To verify Django is working: django-admin
 
+to create a Django project: django-admin startproject projactName
 
+to create a Django app: py manage.py startapp appname
 
