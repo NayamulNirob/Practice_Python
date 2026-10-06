@@ -90,6 +90,17 @@ print(Post.objects.count())
 
 pip install django-htmx
 
+
+
+user=form.save()
+            send_mail(
+                'Verify your account',
+                'Please click the link below to verify your account: http://...',
+                'from@example.com',
+                [user.email],
+                fail_silently=False,
+            )
+
 #############################################################################################################################################################
 
 --------------------------------------------------------------Django Tutorial Of Maximilian------------------------------------------------------------------
