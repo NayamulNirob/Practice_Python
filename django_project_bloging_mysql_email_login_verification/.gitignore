@@ -1,0 +1,4 @@
+*.pyc
+Student.txt
+django_project/.env
+.env
