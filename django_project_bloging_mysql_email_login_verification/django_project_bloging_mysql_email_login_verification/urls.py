@@ -48,7 +48,6 @@ urlpatterns = [
 
     path('verify/<uuid:token>/', user_views.verify_account, name='verify_account'),
     path('', include('blog.urls')),
-    # path('',include('users.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

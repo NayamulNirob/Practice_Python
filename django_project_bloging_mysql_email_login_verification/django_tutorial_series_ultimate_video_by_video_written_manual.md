@@ -137,7 +137,7 @@ Create a new file `urls.py` inside the `blog` directory:
 ```python
 # blog/urls.py
 from django.urls import path
-from . import views
+from blog import views
 
 urlpatterns = [
     path('', views.home, name='blog-home'),
@@ -405,8 +405,8 @@ py manage.py migrate
 ### 3. Registering Models in Django Admin (`blog/admin.py`)
 ```python
 # blog/admin.py
-from django.contrib.admin import admin
-from .models import Post
+from django.contrib.auth import admin
+from blog.models import Post
 
 admin.site.register(Post)
 ```
@@ -467,7 +467,7 @@ Replace the hardcoded dummy list with real ORM queries:
 ```python
 # blog/views.py
 from django.shortcuts import render
-from .models import Post
+from blog.models import Post
 
 def home(request):
     context = {
@@ -510,18 +510,18 @@ Django's **Messages Framework** allows passing temporary notifications between H
 # users/views.py
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
+from users.views import UserRegistrationForm
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save() # Hashes password and persists user to database
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}! You can now log in.')
             return redirect('login')
     else:
-        form = UserRegisterForm()
+        form = UserRegistrationForm()
     return render(request, 'users/register.html', {'form': form})
 ```
 
@@ -657,6 +657,7 @@ Use `@login_required` to block unauthenticated visitors from accessing views:
 ```python
 # users/views.py
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 @login_required
 def profile(request):
@@ -697,7 +698,7 @@ Register `Profile` in `users/admin.py`:
 ```python
 # users/admin.py
 from django.contrib import admin
-from .models import Profile
+from users.models import Profile
 
 admin.site.register(Profile)
 ```
@@ -710,7 +711,7 @@ Use Django post-save signals to generate a `Profile` instance automatically when
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from .models import Profile
+from users.models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
@@ -740,7 +741,7 @@ In `django_project/settings.py`:
 ```python
 import os
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join('BASE_DIR', 'media')
 MEDIA_URL = '/media/'
 ```
 
@@ -748,7 +749,9 @@ In `django_project/urls.py`:
 ```python
 from django.conf import settings
 from django.conf.urls.static import static
-
+urlpatterns=[
+    
+]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
@@ -762,7 +765,7 @@ if settings.DEBUG:
 # users/forms.py
 from django import forms
 from django.contrib.auth.models import User
-from .models import Profile
+from users.models import Profile
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -785,7 +788,7 @@ Handle both `UserUpdateForm` and `ProfileUpdateForm` inside a single view endpoi
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserUpdateForm, ProfileUpdateForm
+from users.forms import UserUpdateForm, ProfileUpdateForm
 
 @login_required
 def profile(request):
@@ -881,7 +884,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Post
+from blog.models import Post
 
 # Displays list of posts
 class PostListView(ListView):
@@ -953,7 +956,7 @@ class Post(models.Model):
 ```python
 # blog/urls.py
 from django.urls import path
-from .views import (
+from blog.views import (
     PostListView,
     PostDetailView,
     PostCreateView,
@@ -1047,7 +1050,7 @@ Add `paginate_by` attribute to `ListView`. Create `UserPostListView` to filter p
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.views.generic import ListView
-from .models import Post
+from blog.models import Post
 
 class PostListView(ListView):
     model = Post
@@ -1069,6 +1072,8 @@ class UserPostListView(ListView):
 
 ### 2. URL Configuration for User Posts (`blog/urls.py`)
 ```python
+from django.urls import path
+from blog.views import UserPostListView
 # blog/urls.py
 path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
 ```
@@ -1108,6 +1113,7 @@ Django includes four views to handle password resets via email securely.
 ```python
 # django_project/urls.py
 from django.contrib.auth import views as auth_views
+from django.urls import path
 
 urlpatterns = [
     # ... previous routes ...
@@ -1214,6 +1220,7 @@ pip install boto3 django-storages
 Add `storages` to `INSTALLED_APPS` and configure keys:
 
 ```python
+import os
 # django_project/settings.py
 INSTALLED_APPS = [
     # ...

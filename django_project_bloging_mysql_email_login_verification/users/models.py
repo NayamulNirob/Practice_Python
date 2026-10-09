@@ -1,5 +1,3 @@
-from typing import cast
-
 from PIL import Image, UnidentifiedImageError
 from django.core.validators import EmailValidator
 from django.db import models

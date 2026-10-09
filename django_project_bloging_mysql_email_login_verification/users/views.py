@@ -1,18 +1,13 @@
 from typing import cast
-
 from django.contrib.auth import logout
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.db import transaction
 from django.shortcuts import render, redirect
-# from django.contrib.auth.forms import  UserCreationForm
 from django.contrib import messages
 from .models import PendingUser
-
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
 from .models import Profile
 
 
@@ -29,9 +24,6 @@ def register(request):
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password1')
 
-            # 2. Hash the password manually exactly ONCE
-            # We use make_password here and will use .create() in verify_account
-            # hashed_password = make_password(password)
 
             # 3. Save to the PendingUser model instead of User
             pending_user = PendingUser.objects.create(
