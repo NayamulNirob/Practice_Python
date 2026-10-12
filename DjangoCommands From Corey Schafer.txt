@@ -1,3 +1,5 @@
+pip pakage install with upgrade: py -m pip install -U pip
+
 Django Install : python -m pip install Django
 
 Django version check: python -m django --version
