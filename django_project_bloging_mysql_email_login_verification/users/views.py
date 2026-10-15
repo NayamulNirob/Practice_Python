@@ -5,6 +5,8 @@ from django.core.mail import send_mail
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
+from django_project_bloging_mysql_email_login_verification import settings
 from .models import PendingUser
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
@@ -33,7 +35,7 @@ def register(request):
             )
 
             # 4. Create the verification link using the token
-            verification_link = f"http://127.0.0.1:8000/verify/{pending_user.token}/"
+            verification_link = f"{settings.SITE_URL}/verify/{pending_user.token}/"
 
             if not email:
                 raise ValueError("Email is required")  # or return an error response
