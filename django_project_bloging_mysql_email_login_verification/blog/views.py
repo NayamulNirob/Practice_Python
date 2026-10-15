@@ -88,3 +88,22 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 
 def about(request):
     return render(request,'blog/about.html',{'title':'About'})
+
+
+#
+class LatestPostView(ListView):
+    model = Post
+    template_name = 'blog/home.html' #<app>/<model>_<viewtype>.html
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        filter_type = self.request.GET.get('filter')
+
+        if filter_type == 'latest':
+            return queryset.order_by('-date_posted')
+
+            # You can add other filters here later (e.g., if filter_type == 'popular')
+        return queryset.order_by('-date_posted')
