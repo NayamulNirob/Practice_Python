@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django_extensions',
+    'django_extensions', # this is for local https, not using in this project yet
     'crispy_bootstrap5',
     'crispy_forms',
     'users.apps.UsersConfig',
