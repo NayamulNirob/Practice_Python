@@ -123,7 +123,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-SITE_URL=os.environ.get('SITE_URL', 'http://127.0.0.1:8000')
+SITE_URL=os.environ.get('SITE_URL', 'http://127.0.0.1:8000') # this is for email varification link to use in different pC local host.
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
