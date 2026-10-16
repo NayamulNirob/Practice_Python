@@ -1,6 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from datetime import timedelta
+from django.utils import timezone
+
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
@@ -107,8 +110,23 @@ class LatestPostView(ListView):
     def get_queryset(self):
         # 1. Start with the default queryset
         queryset = super().get_queryset()
+        target = self.request.GET.get('target')
+        now = timezone.now()
 
-        # 2. Check for the 'date' filter in the URL
+        if target == 'daily':
+            # ONLY posts from today's calendar date
+            queryset = queryset.filter(date_posted__date=now.date())
+
+        elif target == 'weekly':
+            # Filter posts from the last 7 days
+            week_ago = now - timedelta(days=7)
+            queryset = queryset.filter(date_posted__gte=week_ago)
+
+        elif target == 'full':
+            # Show everything (already the default, but explicit for clarity)
+            pass
+
+            # 2. Check for the 'date' filter in the URL
         date_str = self.request.GET.get('date')
         if date_str:
             selected_date = parse_date(date_str)
