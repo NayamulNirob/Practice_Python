@@ -5,7 +5,6 @@ from django.core.mail import send_mail
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
 from django_project_bloging_mysql_email_login_verification import settings
 from .models import PendingUser
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
