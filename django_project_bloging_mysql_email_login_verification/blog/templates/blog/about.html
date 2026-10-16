@@ -1,4 +1,94 @@
 {% extends "blog/base.html" %}
 {% load static %}
+
 {% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <!-- Header Section -->
+        <div class="text-center mt-5 mb-5">
+            <h1 class="display-3 fw-bold">{{ title }}</h1>
+            <p class="lead text-muted">Exploring the intersection of technology, code, and creativity.</p>
+            <div class="d-flex justify-content-center">
+                <span class="badge bg-primary rounded-pill px-3 py-2">Python</span>
+                <span class="badge bg-secondary rounded-pill px-3 py-2 ms-2">Django</span>
+                <span class="badge bg-info rounded-pill px-3 py-2 ms-2">Web Dev</span>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <!-- About the Blog Section -->
+            <div class="col-md-6">
+                <img src="{{ user.profile.image.url }}"
+                     class="img-fluid rounded shadow-sm"
+                     alt="Blogging Space"
+                     style="max-height: 400px; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Our Mission</h2>
+                <p class="text-muted">
+                    Welcome to our blogging platform. This website was created to bridge the gap between
+                    complex technical documentation and practical, real-world application. We believe
+                    that the best way to learn is by building, failing, and then fixing.
+                </p>
+                <p class="text-muted">
+                    Whether you are a seasoned professional or someone writing their first line of code,
+                    our goal is to provide high-quality tutorials, deep-dive articles, and honest
+                    insights into the modern development ecosystem.
+                </p>
+                <div class="mt-4 p-3 bg-light border-start border-primary border-4">
+                    <i class="fst-italic text-dark">
+                        "Coding is not just about syntax; it's about solving problems and building the future."
+                    </i>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We Cover Section -->
+        <div class="row mt-5 pt-5">
+            <div class="col-12 text-center mb-4">
+                <h2 class="fw-bold">What You'll Find Here</h2>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="mb-3"><i class="bi bi-code-slash fs-1 text-primary"></i></div>
+                        <h5 class="fw-bold">Technical Guides</h5>
+                        <p class="small text-muted">Step-by-step tutorials on Django, Python, and MySQL integration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="mb-3"><i class="bi bi-lightbulb fs-1 text-warning"></i></div>
+                        <h5 class="fw-bold">Dev Tips</h5>
+                        <p class="small text-muted">Short, punchy tips to improve your workflow and code quality.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="mb-3"><i class="bi bi-cpu fs-1 text-success"></i></div>
+                        <h5 class="fw-bold">Architecture</h5>
+                        <p class="small text-muted">Deep dives into system design and database optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row mt-5 mb-5">
+            <div class="col-12">
+                <div class="p-5 bg-primary text-white text-center rounded-4 shadow">
+                    <h2 class="fw-bold">Ready to start learning?</h2>
+                    <p class="mb-4">Join our community of developers and stay updated with the latest posts.</p>
+                    <a href="{% url 'blog-home' %}" class="btn btn-light btn-lg px-5 rounded-pill fw-bold text-primary">
+                        Explore Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
