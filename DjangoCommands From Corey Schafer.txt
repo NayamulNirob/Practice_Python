@@ -120,3 +120,5 @@ to create a Django project: django-admin startproject projactName
 
 to create a Django app: py manage.py startapp appname
 
+
+CodeX install : powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
