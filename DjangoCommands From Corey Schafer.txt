@@ -102,7 +102,7 @@ user=form.save()
                 [user.email],
                 fail_silently=False,
             )
-
+To install requirements: pip install -r requirements.txt
 
 Local network deploy: python manage.py runserver 0.0.0.0:8000
 
