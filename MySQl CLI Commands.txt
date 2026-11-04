@@ -1,0 +1,16 @@
+-----------------------------------------------------------------MY SQL CLI Commands for Windows----------------------------------------------------------
+
+The command to connect to MySQL from the Windows command line is: mysql -u root -p
+
+Common variations:
+
+mysql -u username -p                      # connect as a specific user
+mysql -u root -p -h localhost -P 3306     # specify host and port
+mysql -u root -p database_name            # connect and select a database
+
+
+If you want to start the MySQL server itself (rather than connect to it), run this in an Administrator command prompt: net start MySQL84
+
+If you want to stop the MySQL server itself (rather than stop to it), run this in an Administrator command prompt: net stop MySQL84
+
+If you want to start the MySQL server itself (rather than connect to it), run this in an Administrator command prompt: net start MySQL80
