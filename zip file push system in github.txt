@@ -1,0 +1,8 @@
+Use Git LFS. The docs say LFS is the supported way to go past 100 MB in the repo itself, and 172 MB fits under the per-file limit. In a terminal inside your repo:
+
+git lfs install
+git lfs track "*.zip"
+git add .gitattributes
+git add meals_project_files-20261103T135359Z-1-001.zip
+git commit -m "Add meals project files"
+git push
